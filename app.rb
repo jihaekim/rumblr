@@ -132,3 +132,4 @@ def get_specific_post(id)
 end
 #also delete posts
 
+get'/edit-post/:id

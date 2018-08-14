@@ -12,7 +12,7 @@ get "/" do
 
     if session[:user_id]
         @user = User.find_by(id: session[:user_id])
-        @user_posts= Post.where(user_id: session[:user_id])
+        @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
         erb :signed_in_homepage
        
     else
@@ -101,6 +101,9 @@ post "/create-post" do
  )
 #  @user_posts= Post.where(user_id: session[:user_id])
 
+flash[:info] = "Thank you for creating post!"
+
+redirect '/'
 end
 
 
@@ -113,7 +116,8 @@ get'/user/:id' do
 end
 
 get'/posts' do
-    @allposts = Post.all
+    @allposts = Post.all.order('id ASC').reorder('date DESC')
+ 
 
     erb :all_posts
 end

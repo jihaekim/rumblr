@@ -18,6 +18,8 @@ get "/" do
 end
 
 
+# sign in
+
 get "/sign-in" do
     erb :sign_in
 end
@@ -38,6 +40,20 @@ post "/sign-in" do
     end
 end
 
+# logout
+
+get "/sign-out" do
+    session[:use-id] = nil;
+    flash[:info] = "You have been signed out"
+    redirect '/'
+end
+
+
+
+
+
+
+#sign up
 
 get "/sign-up" do
     erb :sign_up

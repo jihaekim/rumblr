@@ -1,2 +1,16 @@
 <h1>Welcome to your homepage</h1>
 
+<a href="<%=url('/create-post')%>">Create Post</a>
+
+
+<a href="/user/<%= @user.id %>">View Post</a> 
+<a href=  "<%=url('/posts')%>">View all posts</a>
+
+<% @user_posts.each do |single_post| %>
+    <h1><%=single_post.title%></h1>
+    <p><%=single_post.date%></p>
+    <img src="<%=single_post.photo_url%>">
+    <p><%=single_post.content%></p>
+<%end%>
+
+

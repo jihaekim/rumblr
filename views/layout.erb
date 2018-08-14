@@ -12,6 +12,8 @@
 <body>
 <%if session[:user_id] %>
  <a href=  "<%=url('/sign-out')%>">Sign out</a>
+ 
+
 <%else%>
 <a href=  "<%=url('/sign-in')%>">Sign In</a>
 <a href=  "<%=url('/sign-up')%>">Sign Up</a>

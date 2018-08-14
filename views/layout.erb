@@ -10,6 +10,15 @@
     <script src="/app.js"></script>
 </head>
 <body>
+<%if session[:user_id] %>
+ <a href=  "<%=url('/sign-out')%>">Sign out</a>
+<%else%>
+<a href=  "<%=url('/sign-in')%>">Sign In</a>
+<a href=  "<%=url('/sign-up')%>">Sign Up</a>
+<%end%>
+
+
+
 <% flash.keys.each do |type| %>
     <div id="flash-container" class="flash <%= type %>">
       <%= flash[type] %>

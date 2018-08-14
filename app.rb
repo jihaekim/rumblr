@@ -64,8 +64,8 @@ post "/sign-up" do
     @user = User.create(
     username: params[:username],
     password: params[:password],
-    firstname: params[:first-name],
-    lastname: params[:last-name],
+    firstname: params[:firstname],
+    lastname: params[:lastname],
     birthday: params[:birthday],
     email: params[:email]
     )
@@ -73,4 +73,6 @@ post "/sign-up" do
     session[:user_id] = @user.id
 
     flash[:info] = "Thank you for signing up!"
+
+    redirect '/'
 end

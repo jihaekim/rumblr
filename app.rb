@@ -122,14 +122,9 @@ get'/posts' do
     erb :all_posts
 end
 
-
-def get_current_user 
-    User.find(session[:user_id])
-end
-
-def get_specific_post(id)
-    Post.find(id)
+get '/posts/:id/edit' do
+    @current_post = Post.find(params[:id])
+    erb :edit_post
 end
 #also delete posts
 
-get'/edit-post/:id

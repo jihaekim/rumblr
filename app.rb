@@ -59,7 +59,7 @@ end
 #sign up
 
 get "/sign-up" do
-    erb :sign_up
+    erb :sign_up, :layout=> :signout_layout
 end
 
 

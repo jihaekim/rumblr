@@ -37,7 +37,8 @@ body {
   #signin-div .input-div {
     padding: 4%; }
   #signin-div #login {
-    font-size: 2em; }
+    font-size: 2em;
+    text-shadow: 2px 2px white; }
   #signin-div .input-box {
     width: 200px;
     height: 30px;
@@ -48,6 +49,32 @@ body {
     font-size: 1em; }
 
 #login-div :hover {
+  background-color: black;
+  color: white; }
+
+#signup-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 15%; }
+  #signup-div .input-area {
+    padding: 3px; }
+  #signup-div .signup-input {
+    width: 300px;
+    height: 30px;
+    font-size: 1em; }
+  #signup-div #signup {
+    font-family: 'Lobster', cursive;
+    font-size: 3em;
+    text-shadow: 2px 2px white; }
+
+#signup-btn-div {
+  padding-top: 10px; }
+  #signup-btn-div #signup-btn {
+    width: 300px; }
+
+#signup-btn-div :hover {
   background-color: black;
   color: white; }
 

@@ -32,6 +32,8 @@ body{
     color: white;
 }
 
+
+
 #signin-div{
     display: flex;
     flex-direction: column;
@@ -51,6 +53,17 @@ body{
    .input-box{
     width: 200px;
     height: 30px;
+    font-size: 1em;
    }
    
+  #login-btn{
+     width: 200px;
+     padding: 20p;
+     font-size: 1em;
+  }
+}
+
+#login-div :hover{
+    background-color:black;
+    color:white;
 }

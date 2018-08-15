@@ -9,17 +9,17 @@ set :database, {adapter:"postgresql", database:"rumblr"}
 
 get "/" do
 
-
     if session[:user_id]
         @user = User.find_by(id: session[:user_id])
+        #below is getting only users posts
         @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
-       
+        @allposts = Post.where('user_id != ?', session[:user_id])
+         
+        erb :signed_in_homepage
     else
         erb :signed_out_homepage, :layout=> :signout_layout
        
     end
-
-    
 
 end
 
@@ -37,11 +37,8 @@ post "/sign-in" do
     if @user && @user.password == params[:password]
         session[:user_id]= @user.id
 
-        # flash[:info] = "You have been signed in."
         redirect'/'
     else 
-
-        # flash[:warning] = "username or password is incorrect"
         redirect'/sign-in'
     end
 end
@@ -115,6 +112,8 @@ end
 
 get'/posts' do
     # @allposts = Post.all.where("id != ?",session[:user_id].id).order('id ASC').reorder('date DESC')
+
+    #below shows all other peoples posts
     @allposts = Post.where('user_id != ?', session[:user_id])
     # @allposts = Post.all.order('id ASC').reorder('date DESC')
     erb :all_posts

@@ -1,0 +1,16 @@
+<%=@current_post.title%>
+<%=@current_post.content%>
+
+<form method="POST" action="/posts/<%=@current_post.id%>">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="date" name="date" id="date">
+    <input type="text" name="title" id="title" placeholder="title">
+    <input type="text" name="photourl" id="photourl" placeholder="photo url">
+    <input type="text" name="content" id="content" placeholder="type here">
+    <input type="submit" value="Edit Post">
+</form>
+
+<form method="POST" action="/posts/<%=@current_post.id%>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" name="DELETE" value="delete">
+</form>

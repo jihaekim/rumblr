@@ -1,6 +1,6 @@
 require "sinatra"
 require "sinatra/activerecord"
-require 'sinatra/flash'
+# require 'sinatra/flash'
 require './models/post.rb'
 require './models/user.rb'
 
@@ -13,10 +13,10 @@ get "/" do
     if session[:user_id]
         @user = User.find_by(id: session[:user_id])
         @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
-        erb :signed_in_homepage
        
     else
-        erb :signed_out_homepage
+        erb :signed_out_homepage, :layout=> :signout_layout
+       
     end
 
     
@@ -37,11 +37,11 @@ post "/sign-in" do
     if @user && @user.password == params[:password]
         session[:user_id]= @user.id
 
-        flash[:info] = "You have been signed in."
+        # flash[:info] = "You have been signed in."
         redirect'/'
     else 
 
-        flash[:warning] = "username or password is incorrect"
+        # flash[:warning] = "username or password is incorrect"
         redirect'/sign-in'
     end
 end
@@ -50,7 +50,7 @@ end
 
 get "/sign-out" do
     session[:user_id] = nil;
-    flash[:info] = "You have been signed out"
+    # flash[:info] = "You have been signed out"
     redirect '/'
 end
 
@@ -78,7 +78,7 @@ post "/sign-up" do
 
     session[:user_id] = @user.id
 
-    flash[:info] = "Thank you for signing up!"
+    # flash[:info] = "Thank you for signing up!"
 
     redirect '/'
 end
@@ -101,8 +101,6 @@ post "/create-post" do
  )
 #  @user_posts= Post.where(user_id: session[:user_id])
 
-flash[:info] = "Thank you for creating post!"
-
 redirect '/'
 end
 
@@ -116,9 +114,9 @@ get'/user/:id' do
 end
 
 get'/posts' do
-    @allposts = Post.all.order('id ASC').reorder('date DESC')
- 
-
+    # @allposts = Post.all.where("id != ?",session[:user_id].id).order('id ASC').reorder('date DESC')
+    @allposts = Post.where('user_id != ?', session[:user_id])
+    # @allposts = Post.all.order('id ASC').reorder('date DESC')
     erb :all_posts
 end
 
@@ -126,5 +124,22 @@ get '/posts/:id/edit' do
     @current_post = Post.find(params[:id])
     erb :edit_post
 end
-#also delete posts
 
+
+put '/posts/:id' do
+    @current_post = Post.find(params[:id])
+    @current_post.update(date: params[:date],
+    title: params[:title],
+    photo_url: params[:photourl],
+    content: params[:content])
+    
+
+   erb :view_edited
+    # display the edited post
+end
+
+delete '/posts/:id' do
+    @current_post = Post.find(params[:id])
+    @current_post.destroy
+    redirect '/'
+end

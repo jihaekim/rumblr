@@ -27,7 +27,7 @@ end
 # sign in
 
 get "/sign-in" do
-    erb :sign_in
+    erb :sign_in, :layout=> :signout_layout
 end
 
 

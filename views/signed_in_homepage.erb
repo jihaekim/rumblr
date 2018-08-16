@@ -1,17 +1,20 @@
-<h1>Welcome to your homepage</h1>
-
-<a href="<%=url('/create-post')%>">Create Post</a>
 
 
-<a href="/user/<%= @user.id %>">View Post</a> 
-<a href=  "<%=url('/posts')%>">View all posts</a>
 
-<% @user_posts.each do |single_post| %>
-    <h1><%=single_post.title%></h1>
-    <p><%=single_post.date%></p>
-    <img src="<%=single_post.photo_url%>">
-    <p><%=single_post.content%></p>
-    <a href="/posts/<%=single_post.id%>/edit">EDIT</a>
+<div id="flex-container">
+
+<div id="flex-inner">
+<% @allposts.each do |single_post| %>
+
+    <div class="posts">
+    <div class="inner-div">
+    <div id="title" class="display-posts"><h2><%=single_post.title%></h2></div>
+    <div class="img-div display-posts"><a href="/post/<%=single_post.id%>"><img class="post-img"src="<%=single_post.photo_url%>"></a></div>
+   
+    </div>
+    </div>
 <%end%>
+</div>
+
 
 

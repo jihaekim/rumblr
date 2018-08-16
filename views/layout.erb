@@ -6,19 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="/app.css" />
-    <script src="/app.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
+
+
 <body>
-<%=yield%>
+
+
+<div id="outside-div">
+
+<div id="nav-container">
+<div id="navbar">
+<div id="logo-div">
+<a href='/' id="logo">Rumblr</a>
+</div>
+
+
+<div id="link-div">
+<div class="inner-link-div"><a class="nav-links" href= "<%=url('/')%>">Home</a></div>
+<div class="inner-link-div"><a class="nav-links" href="<%=url('/create-post')%>">Create Post</a></div> 
+<div class="inner-link-div"><a class="nav-links" href="/user/<%= @user.id %>">My posts</a></div> 
 <%if session[:user_id] %>
- <a href=  "<%=url('/sign-out')%>">Sign out</a>
- 
+ <div class="inner-link-div"><a class="nav-links" id="signout" href= "<%=url('/sign-out')%>">Sign out</a></div>
+ </div>
+ </div>
+</div>
 
 <%else%>
-<a href=  "<%=url('/sign-in')%>">Sign In</a>
-<a href=  "<%=url('/sign-up')%>">Sign Up</a>
+<a href="<%=url('/sign-in')%>">Sign In</a>
+<a href="<%=url('/sign-up')%>">Sign Up</a>
 <%end%>
 
+<div id="blog-div">
+<%=yield%>
+
+
+
+
+</div>
+</div>
+
+<script src="/app.js"></script>
 </body>
 </html>

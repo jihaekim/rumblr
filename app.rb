@@ -12,9 +12,11 @@ get "/" do
     if session[:user_id]
         @user = User.find_by(id: session[:user_id])
         #below is getting only users posts
-        @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
+        # @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
+        @user_posts= Post.where(user_id: session[:user_id]).order("created_at")
         @allposts = Post.where('user_id != ?', session[:user_id])
-         
+        @allusers = User.all
+        @random_user = User.order('RANDOM()').limit(3)
         erb :signed_in_homepage
     else
         erb :signed_out_homepage, :layout=> :signout_layout
@@ -87,7 +89,13 @@ end
 
 
 post "/create-post" do
+# @user = User.find_by(id: session[:user_id])
+# @user_posts = @user.posts
 @user = User.find_by(id: session[:user_id])
+#below is getting only users posts
+# @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
+@user_posts= Post.where(user_id: session[:user_id]).order("created_at")
+@allusers = User.all
 
  @post = Post.create(
      date: params[:date],
@@ -96,17 +104,19 @@ post "/create-post" do
      content: params[:content],
       user_id: @user.id
  )
+
 #  @user_posts= Post.where(user_id: session[:user_id])
 
-redirect '/'
+erb :user_posts
 end
 
 
 get'/user/:id' do
+    @current_user = User.find(params[:id])
+    @user_posts = @current_user.posts
+#  @user_posts= Post.where(user_id: session[:user_id])
 
- @user_posts= Post.where(user_id: session[:user_id])
-
- erb :user_posts
+ 
 
 end
 

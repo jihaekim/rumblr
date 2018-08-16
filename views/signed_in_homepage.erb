@@ -1,17 +1,39 @@
-<h1>Welcome to your homepage</h1>
 
-<a href="<%=url('/create-post')%>">Create Post</a>
+<div id="outside-div">
+<div id="logo-div">
+<a href='/' id="logo">Rumblr</a>
+</div>
 
+<div id="blog-div">
+<div>
+<a id="create-post" href="<%=url('/create-post')%>"><button class="home-btns">Create Post</button></a>
+<a href="/user/<%= @user.id %>"><button class="home-btns">View Post</button></a> 
+<a href=  "<%=url('/posts')%>"><button class="home-btns">View all posts</button></a>
+</div>
 
-<a href="/user/<%= @user.id %>">View Post</a> 
-<a href=  "<%=url('/posts')%>">View all posts</a>
-
+<div id="outer-container">
+<div>
 <% @allposts.each do |single_post| %>
-    <h1><%=single_post.title%></h1>
-    <p><%=single_post.date%></p>
-    <img src="<%=single_post.photo_url%>">
-    <p><%=single_post.content%></p>
-    <a href="/posts/<%=single_post.id%>/edit">EDIT</a>
+
+    <div class="posts">
+    <div class="inner-div">
+    <div id="title" class="display-posts"><h2><%=single_post.title%></h2></div>
+    <div id="date" class="display-posts"><p><%=single_post.date%></p></div>
+    <div class="img-div display-posts"><img class="post-img"src="<%=single_post.photo_url%>"></div>
+    <div class="display-posts"><p><%=single_post.content%></p></div>
+    <div class="display-posts"><a href="/posts/<%=single_post.id%>/edit">EDIT</a></div>
+    </div>
+    </div>
 <%end%>
+</div>
 
-
+<div>
+<% @random_user.each do |each_user|%>
+    <div class="display-user">
+    <a href="/user/<%=each_user.id%>" ><%=each_user.username%></a>
+    </div>
+<%end%>
+</div>
+</div>
+</div>
+</div>

@@ -1,6 +1,23 @@
+
+
+
+
+
+
+<div id="outer-container">
+<div>
 <% @allposts.each do |single_post| %>
-    <h1><%=single_post.title%></h1>
-    <p><%=single_post.date%></p>
-    <img src="<%=single_post.photo_url%>">
-    <p><%=single_post.content%></p>
+    <div class="posts">
+    <div class="inner-div">
+    <div id="title" class="display-posts"><h1><%=single_post.title%></h1></div>
+    <div id="date" class="display-posts"><p><%=single_post.date%></p></div>
+    <div class="img-div display-posts"><img class="post-img" src="<%=single_post.photo_url%>"></div>
+    <div class="display-posts"><p><%=single_post.content%></p></div>
+    </div>
+    </div>
 <%end%>
+</div>
+
+
+
+

@@ -8,19 +8,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="/app.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
+
+
 <body>
 
-<%=yield%>
-<%if session[:user_id] %>
- <a href=  "<%=url('/sign-out')%>">Sign out</a>
- 
+<div id="outside-div">
+<div id="logo-div">
+<a href='/' id="logo">Rumblr</a>
+</div>
 
+<div id="blog-div">
+
+<div>
+<div class="small-boxes">
+<a id="create-post" href="<%=url('/create-post')%>">
+<i class="fas fa-pencil-alt"></i>
+<span class="text">Create Post</span>
+</a>
+</div>
+<a href="/user/<%= @user.id %>"><button class="home-btns">View Post</button></a> 
+<a href=  "<%=url('/posts')%>"><button class="home-btns">View all posts</button></a>
+
+<%if session[:user_id] %>
+ <a id="signout" href= "<%=url('/sign-out')%>"><button class="home-btns">Sign out</button></a>
+ </div>
+ 
 <%else%>
 <a href=  "<%=url('/sign-in')%>">Sign In</a>
 <a href=  "<%=url('/sign-up')%>">Sign Up</a>
 <%end%>
+<%=yield%>
 
+
+<div id="display-random">
+<div><h2>Discover Blogs</h2></div>
+
+<% @random_user.each do |each_user|%>
+    <div class="display-user">
+    <a class="random-users" href="/user/<%=each_user.id%>" > <%=each_user.username%> </a>
+    </div>
+    
+<%end%>
+</div>
+
+
+</div>
+</div>
 
 <script src="/app.js"></script>
 </body>

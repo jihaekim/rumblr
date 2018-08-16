@@ -1,10 +1,14 @@
 body{
-
+    background-image: url("http://i65.tinypic.com/efh08i.jpg");
+    background-attachment: fixed;
+  font-family: sans-serif;
     #blog-div{
-        background-color: #80bcb4;
+        background-color: white;
         width:90%;
         margin: 0 auto;
         margin-top: 5%;
+       
+        
     }
 }
 
@@ -17,11 +21,11 @@ body{
     margin-top:10%;
 }
 
-#logo-div{
- background-image: url("http://i65.tinypic.com/efh08i.jpg");
- width: 90%;
- height: 200px;
- margin: 0 auto;
+// #logo-div{
+//  background-image: url("http://i65.tinypic.com/efh08i.jpg");
+//  width: 90%;
+//  height: 200px;
+//  margin: 0 auto;
 
     #logo{
         font-family: 'Lobster', cursive;
@@ -29,7 +33,7 @@ body{
         color:black;
         font-size:8em;
     }
-}
+// }
 
 
 .home-btns{
@@ -41,7 +45,7 @@ body{
 
 #outer-container{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-top: 10%;
 }
 .posts{
@@ -80,3 +84,45 @@ body{
            
        }
    }
+
+#display-random{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .display-user{
+        border-left: 3px solid grey;
+        border-bottom: 1px dotted grey;
+        border-top: 1px dotted grey;
+        width:98%;
+        height:25px;
+        height: 40px;
+        
+    }
+
+   .random-users{
+       text-decoration: none;
+       color:black;
+       font-size:20px;
+       position: relative;
+       left: 20%;
+       top: 20%;
+   }
+}
+
+.display-user:hover{
+    background-color: aliceblue;
+}
+
+.text{
+    display:none;
+}
+.small-boxes:hover i {
+    display: none;
+  }
+  
+  .small-boxes:hover span {
+    display: inline;
+  }

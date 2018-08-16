@@ -23,7 +23,7 @@ body {
 .sign-links {
   padding: 2%; }
 
-.sign-links :hover {
+.sign-links:hover {
   background-color: black;
   color: white; }
 
@@ -48,7 +48,7 @@ body {
     padding: 20p;
     font-size: 1em; }
 
-#login-div :hover {
+#login-div:hover {
   background-color: black;
   color: white; }
 
@@ -74,7 +74,7 @@ body {
   #signup-btn-div #signup-btn {
     width: 300px; }
 
-#signup-btn-div :hover {
+#signup-btn-div:hover {
   background-color: black;
   color: white; }
 

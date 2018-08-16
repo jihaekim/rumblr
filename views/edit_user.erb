@@ -1,0 +1,18 @@
+
+<form method="POST" action="/users/<%= @current_user.id %>"> 
+
+<input type="hidden" name="_method" value="PUT">
+
+<input type="text" name="username" placeholder="username" value="<%= @current_user.username%>">
+<input type="text" name="password"  placeholder="password" value="<%= @current_user.password %>">  
+<input type="text" name="firstname" placeholder="firstname" value="<%= @current_user.firstname%>"> 
+<input type="text" name="lastname" placeholder="lastname" value="<%= @current_user.lastname%>"> 
+<input type="text" name="birthday" placeholder="birthday" value="<%= @current_user.birthday%>"> 
+<input type="text" name="email" placeholder="email" value="<%= @current_user.email%>"> 
+<input type="submit" value="Submit">
+</form>
+
+<form method="POST" action="/users/<%= @current_user.id %>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Account">
+</form>

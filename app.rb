@@ -135,6 +135,32 @@ get'/user/:id' do
 erb :user_posts
 end
 
+get '/users/:id/edit' do
+    @user = User.find_by(id: session[:user_id])
+    @current_user=User.find(params[:id])
+    erb :edit_user
+end
+
+put '/users/:id' do
+    @current_user = User.find(params[:id])
+    @current_user.update(
+    username: params[:username],
+    password: params[:password],
+    firstname: params[:firstname],
+    lastname: params[:lastname],
+    birthday: params[:birthday],
+    email: params[:email]
+    )
+end
+
+delete'/users/:id' do
+    @current_user = User.find(params[:id])
+    @current_user.destroy
+    session[:user_id]=nil
+    redirect '/'
+end
+
+
 
 # GET ALL POSTS
 get'/posts' do
@@ -160,11 +186,15 @@ end
 
 get '/posts/:id/edit' do
     @current_post = Post.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    @random_user = User.order('RANDOM()').limit(4)
     erb :edit_post
 end
 
 
 put '/posts/:id' do
+    @user = User.find_by(id: session[:user_id])
+    @random_user = User.order('RANDOM()').limit(4)
     @current_post = Post.find(params[:id])
     @current_post.update(date: params[:date],
     title: params[:title],
@@ -172,7 +202,7 @@ put '/posts/:id' do
     content: params[:content])
     
 
-   erb :view_edited
+    erb :edit_post
   
 end
 

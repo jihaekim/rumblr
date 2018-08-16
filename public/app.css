@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: sans-serif; }
+  font-family: 'Open Sans', sans-serif; }
   body #blog-div {
     width: 90%;
     margin: 0 auto;
@@ -122,9 +122,7 @@ body {
   align-items: center;
   background-color: mintcream;
   width: 300px;
-  height: 350px;
-  padding: 5%;
-  margin: 5%; }
+  height: 350px; }
   .inner-div .post-img {
     width: 300px;
     height: 300px; }
@@ -136,10 +134,14 @@ body {
 #single-div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 10%; }
+  align-items: center; }
   #single-div #title-div {
     width: 700px; }
+    #single-div #title-div #post-title {
+      font-size: 2em;
+      margin: 0; }
+    #single-div #title-div #post-par {
+      margin-top: 0; }
   #single-div #post-text {
     width: 700px; }
 

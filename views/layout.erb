@@ -17,23 +17,26 @@
 
 <div id="outside-div">
 
+<div id="nav-container">
 <div id="navbar">
 <div id="logo-div">
 <a href='/' id="logo">Rumblr</a>
 </div>
 
-<div>
-<a href="<%=url('/create-post')%>"><button class="home-btns">Create Post</button></a> 
-<a href="/user/<%= @user.id %>"><button class="home-btns">View Post</button></a> 
-<a href=  "<%=url('/posts')%>"><button class="home-btns">View all posts</button></a>
+
+<div id="link-div">
+<div class="inner-link-div"><a class="nav-links" href= "<%=url('/')%>">Home</a></div>
+<div class="inner-link-div"><a class="nav-links" href="<%=url('/create-post')%>">Create Post</a></div> 
+<div class="inner-link-div"><a class="nav-links" href="/user/<%= @user.id %>">My posts</a></div> 
 <%if session[:user_id] %>
- <a id="signout" href= "<%=url('/sign-out')%>"><button class="home-btns">Sign out</button></a>
+ <div class="inner-link-div"><a class="nav-links" id="signout" href= "<%=url('/sign-out')%>">Sign out</a></div>
  </div>
  </div>
+</div>
 
 <%else%>
-<a href=  "<%=url('/sign-in')%>">Sign In</a>
-<a href=  "<%=url('/sign-up')%>">Sign Up</a>
+<a href="<%=url('/sign-in')%>">Sign In</a>
+<a href="<%=url('/sign-up')%>">Sign Up</a>
 <%end%>
 
 <div id="blog-div">

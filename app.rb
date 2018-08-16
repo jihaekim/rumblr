@@ -101,6 +101,8 @@ post "/create-post" do
 #below is getting only users posts
 #  @user_posts= Post.where(user_id: session[:user_id]).order('id ASC').reorder('date DESC')
 # @user_posts= Post.where(user_id: session[:user_id]).order('created_at DESC')
+@current_post = @post
+
 
 @allusers = User.all
 
@@ -113,7 +115,7 @@ post "/create-post" do
  )
 
 #  @user_posts= Post.where(user_id: session[:user_id])
-erb :user_posts
+redirect"/post/#{@post.id}"
 
 end
 
@@ -124,6 +126,7 @@ end
 get'/user/:id' do
     @user = User.find_by(id: session[:user_id])
     @current_user = User.find(params[:id])
+    @current_user_posts = @current_user.posts
     @user_posts = @current_user.posts.order('id ASC').reorder('date DESC')
     @allusers = User.all
     @random_user = User.order('RANDOM()').limit(4)

@@ -2,6 +2,7 @@
 
 <div id="div-random-posts">
 <div>
+
 <% @user_posts.each do |single_post| %>
     
    <div id="single-div">
@@ -11,7 +12,10 @@
     </div>
     <div id="img-post-div"><img id="inside-img" src="<%=single_post.photo_url%>"></div>
     <div id="post-text"><p><%=single_post.content%></p></div>
+    <%if @current_user.id == @user.id%>
     <div><a href="/posts/<%=single_post.id%>/edit">EDIT</a></div>
+    <%end%>
+
   </div>
 <%end%>
 

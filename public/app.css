@@ -1,12 +1,50 @@
 body {
+  margin: 0;
   font-family: sans-serif; }
   body #blog-div {
     width: 90%;
     margin: 0 auto;
     margin-top: 5%; }
 
+#outside-div {
+  padding-top: 10%;
+  background-image: url("http://i65.tinypic.com/efh08i.jpg");
+  background-attachment: fixed;
+  min-height: 1000px;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */ }
+
+#nav-container {
+  top: 0;
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  background-color: white;
+  border-bottom: 1px solid black; }
+
 #navbar {
-  display: flex; }
+  display: flex;
+  /* background-color: antiquewhite; */
+  /* position: fixed; */
+  justify-content: space-between;
+  /* top: 0; */
+  width: 95%;
+  height: 50;
+  position: relative;
+  top: 20%; }
+  #navbar .nav-links {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-family: 'Lobster', cursive; }
+  #navbar #link-div {
+    margin-top: 19px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%; }
 
 #container {
   display: flex;
@@ -17,7 +55,8 @@ body {
   font-family: 'Lobster', cursive;
   text-decoration: none;
   color: black;
-  font-size: 2em; }
+  font-size: 2em;
+  margin-left: 50px; }
 
 .home-btns {
   padding: 5px; }
@@ -33,24 +72,28 @@ body {
   height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  color: white;
+  box-shadow: 5px 10px 18px #888888;
+  border: 1px solid white;
+  background-color: #09090a; }
   #display-random .display-user {
-    border-left: 3px solid grey;
-    border-bottom: 1px dotted grey;
-    border-top: 1px dotted grey;
+    border-left: 3px solid white;
+    border-bottom: 1px dotted white;
+    border-top: 1px dotted white;
     width: 98%;
     height: 25px;
     height: 40px; }
   #display-random .random-users {
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 20px;
     position: relative;
     left: 20%;
     top: 20%; }
 
 .display-user:hover {
-  background-color: aliceblue; }
+  background-color: white; }
 
 .text {
   display: none; }
@@ -70,18 +113,21 @@ body {
     flex-wrap: wrap;
     justify-content: space-around; }
 
+.posts {
+  padding: 3%; }
+
 .inner-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: mintcream;
-  border: 1px solid black;
   width: 300px;
-  height: 300px;
+  height: 350px;
+  padding: 5%;
   margin: 5%; }
   .inner-div .post-img {
-    width: 100%;
-    height: 100%; }
+    width: 300px;
+    height: 300px; }
 
 #div-random-posts {
   display: flex;

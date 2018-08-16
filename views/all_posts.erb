@@ -4,19 +4,18 @@
 
 
 
-<div id="outer-container">
-<div>
+<div id="flex-container">
+<div id="flex-inner">
 <% @allposts.each do |single_post| %>
     <div class="posts">
     <div class="inner-div">
     <div id="title" class="display-posts"><h1><%=single_post.title%></h1></div>
-    <div id="date" class="display-posts"><p><%=single_post.date%></p></div>
-    <div class="img-div display-posts"><img class="post-img" src="<%=single_post.photo_url%>"></div>
-    <div class="display-posts"><p><%=single_post.content%></p></div>
+    <div class="img-div display-posts"><a href="/post/<%=single_post.id%>"><img class="post-img"src="<%=single_post.photo_url%>"></a></div>
     </div>
     </div>
 <%end%>
 </div>
+
 
 
 

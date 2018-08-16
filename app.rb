@@ -144,7 +144,14 @@ get'/posts' do
 end
 
 
-
+get '/post/:id' do
+    @current_post = Post.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    @random_user = User.order('RANDOM()').limit(4)
+  
+   erb :view_post
+  
+end
 
 #EDIT THE POSTS
 

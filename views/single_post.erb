@@ -1,0 +1,15 @@
+<div id="outer-container">
+<div id="grid">
+<% @allposts.each do |single_post| %>
+
+    <div class="posts">
+    <div class="inner-div">
+    <div id="title" class="display-posts"><h2><%=single_post.title%></h2></div>
+    <div id="date" class="display-posts"><p><%=single_post.date%></p></div>
+    <div class="img-div display-posts"><img class="post-img"src="<%=single_post.photo_url%>"></div>
+    <div class="display-posts"><p><%=single_post.content%></p></div>
+    <div class="display-posts"><a href="/posts/<%=single_post.id%>/edit">EDIT</a></div>
+    </div>
+    </div>
+<%end%>
+</div>

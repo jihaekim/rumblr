@@ -1,20 +1,18 @@
 body{
-    background-image: url("http://i65.tinypic.com/efh08i.jpg");
-    background-attachment: fixed;
+    // background-image: url("http://i65.tinypic.com/efh08i.jpg");
+    // background-attachment: fixed;
   font-family: sans-serif;
     #blog-div{
-        background-color: white;
         width:90%;
         margin: 0 auto;
         margin-top: 5%;
-       
-        
     }
 }
 
-#outside-div{
-    margin-top: 3%;
+#navbar{
+    display: flex;
 }
+
 #container{
     display:flex;
     justify-content: space-evenly;
@@ -31,36 +29,13 @@ body{
         font-family: 'Lobster', cursive;
         text-decoration: none;
         color:black;
-        font-size:8em;
+        font-size:2em;
     }
 // }
 
 
 .home-btns{
     padding: 5px;
-}
-
-
-// Display user posts
-
-#outer-container{
-    display:flex;
-    justify-content: space-around;
-    margin-top: 10%;
-}
-.posts{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10%;
-
-    .inner-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: mintcream;
-    width: 600px;
-    border: 1px solid black;
-    }
 }
 
 
@@ -71,19 +46,6 @@ body{
 #date{
     font-size: 12px;
 }
-
-
-.img-div{
-    width:540px;
-    height:620px;
-    
-   
-       .post-img{
-           width:100%;
-           height:100%;
-           
-       }
-   }
 
 #display-random{
     width: 300px;
@@ -126,3 +88,73 @@ body{
   .small-boxes:hover span {
     display: inline;
   }
+
+//   FLEX GRID
+
+// #outer-container{
+//     display:flex;
+//     justify-content: space-around;
+//     margin-top: 10%;
+// }
+  #flex-container{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+     #flex-inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+     }
+  }
+
+
+    // .posts{
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 10%;
+//   }
+  .inner-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: mintcream;
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    margin: 5%;
+
+        .post-img{
+            width:100%;
+            height:100%;
+        
+        }
+    }
+
+// VIEW POST / USER POSTS ERB CSS
+
+#div-random-posts{
+    display:flex;
+    justify-content: space-around;
+}
+#single-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+
+    #title-div{
+        width: 700px;
+    }
+
+    #post-text{
+        width: 700px;
+    }
+}
+#img-post-div{
+    width: 700px;
+    height: 650px;
+    #inside-img{
+        width:100%;
+        height:100%
+    }
+}

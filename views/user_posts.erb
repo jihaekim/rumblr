@@ -1,23 +1,35 @@
 
 
-
-<div id="outer-container">
+<div id="div-random-posts">
 <div>
 <% @user_posts.each do |single_post| %>
     
-    <div class="posts">
-    <div class="inner-div">
-    <div id="title" class="display-posts"><h2><%=single_post.title%></h2></div>
-    <div id="date" class="display-posts"><p><%=single_post.date%></p></div>
-    <div class="img-div display-posts"><img class="post-img" src="<%=single_post.photo_url%>"></div>
-    <div class="display-posts"><p><%=single_post.content%></p></div>
-    <div class="display-posts"><a href="/posts/<%=single_post.id%>/edit">EDIT</a></div>
+   <div id="single-div">
+   <div id= "title-div">
+    <div><h2><%=single_post.title%></h2></div>
+    <div ><p><%=single_post.date%></p></div>
     </div>
+    <div id="img-post-div"><img id="inside-img" src="<%=single_post.photo_url%>"></div>
+    <div id="post-text"><p><%=single_post.content%></p></div>
+    <div><a href="/posts/<%=single_post.id%>/edit">EDIT</a></div>
+  </div>
+<%end%>
+
+</div>
+
+
+<div id="display-random">
+<div><h2>Discover Blogs</h2></div>
+
+<% @random_user.each do |each_user|%>
+    <div class="display-user">
+    <a class="random-users" href="/user/<%=each_user.id%>" > <%=each_user.username%> </a>
     </div>
-   
+    
 <%end%>
 </div>
 
+</div>
 
 
 

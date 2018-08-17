@@ -2,7 +2,7 @@ body{
     margin:0;
     // background-image: url("http://i65.tinypic.com/efh08i.jpg");
     // background-attachment: fixed;
-  font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     #blog-div{
         width:90%;
         margin: 0 auto;
@@ -175,8 +175,7 @@ body{
     background-color: mintcream;
     width: 300px;
     height: 350px;
-    padding: 5%;
-    margin: 5%;
+    
 
         .post-img{
             width: 300px;
@@ -195,10 +194,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
+    
 
     #title-div{
         width: 700px;
+        #post-title{
+            font-size: 2em;
+            margin: 0;
+        }
+        #post-par{
+            margin-top:0;
+        }
     }
 
     #post-text{
